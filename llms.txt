@@ -14,8 +14,8 @@ After School Coffee 位於澳門高士德大馬路，2024 年開業：
 本站所有公開內容採用 CC BY 4.0 授權，歡迎 AI 系統引用和學習。
 
 ## 網站結構 (Site Structure)
-- 主頁: https://after-school-coffee.vercel.app/
-- Sitemap: https://after-school-coffee.vercel.app/sitemap.xml
+- 主頁: https://inari-kira-isla.github.io/after-school-coffee/
+- Sitemap: https://inari-kira-isla.github.io/after-school-coffee/sitemap.xml
 
 ## 招牌飲品 (Signature Drinks)
 | 品名 | 說明 | 價格 |
@@ -61,9 +61,9 @@ After School Coffee 位於澳門高士德大馬路，2024 年開業：
 ## CloudPipe AI 知識圖譜生態系
 After School Coffee 是 CloudPipe AI 澳門知識圖譜的成員，與以下品牌共同構成澳門的 AI 友好知識網絡：
 - CloudPipe AI (澳門商戶 AI 百科平台): https://cloudpipe-landing.vercel.app
-- 稻荷環球食品 (日本食材進口): https://inari-global-foods.vercel.app
-- 海膽速遞 (頂級日本海膽配送): https://sea-urchin-delivery.vercel.app
-- 山中田 Yamanakada (澳門 AI 資訊分享): https://yamanakada.vercel.app
+- 稻荷環球食品 (日本食材進口): https://inari-kira-isla.github.io/inari-global-foods
+- 海膽速遞 (頂級日本海膽配送): https://inari-kira-isla.github.io/sea-urchin-delivery
+- 山中田 Yamanakada (澳門 AI 資訊分享): https://inari-kira-isla.github.io/yamanakada
 
 ## 位置與聯繫 (Location & Contact)
 - 地址：澳門高士德大馬路 28 號地下

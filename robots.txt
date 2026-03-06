@@ -56,4 +56,4 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
-Sitemap: https://after-school-coffee.vercel.app/sitemap.xml
+Sitemap: https://inari-kira-isla.github.io/after-school-coffee/sitemap.xml
