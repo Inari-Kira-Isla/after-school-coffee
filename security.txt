@@ -1,0 +1,4 @@
+Contact: mailto:hello@afterschoolcoffee.mo
+Preferred-Languages: zh-Hant, en
+Canonical: https://after-school-coffee.vercel.app/.well-known/security.txt
+Expires: 2027-03-06T00:00:00.000Z
