@@ -334,7 +334,7 @@
     }
     .gallery-title span { color: #E8A87C; }
     .gallery-scroll {
-      display: flex; gap: 20px; animation: scroll-left 30s linear infinite;
+      display: flex; gap: 20px; animation: scroll-left 45s linear infinite;
       width: max-content;
     }
     .gallery-scroll:hover { animation-play-state: paused; }
@@ -442,6 +442,10 @@
     }
     .feature:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(62,39,35,0.1); }
     .feature .icon { font-size: 2.2rem; margin-bottom: 16px; }
+    .feature .icon-img {
+      width: 100%; height: 180px; object-fit: cover; border-radius: 12px;
+      margin-bottom: 16px;
+    }
     .feature h4 { font-size: 1rem; color: #3E2723; margin-bottom: 8px; }
     .feature p { font-size: 0.85rem; color: #8D6E63; line-height: 1.6; }
 
@@ -507,6 +511,7 @@
       .menu-showcase-item { height: 200px; }
       .space-hero { height: 300px; }
       .features { grid-template-columns: repeat(2, 1fr); }
+      .feature .icon-img { height: 140px; }
       .location-grid { grid-template-columns: 1fr; }
       .gallery-item { width: 260px; height: 180px; }
       nav .nav-links { gap: 14px; }
@@ -525,7 +530,7 @@
 <!-- Navigation -->
 <nav id="navbar">
   <div class="nav-inner">
-    <a href="#" class="logo">AFTER <span>School</span> COFFEE</a>
+    <a href="#" class="logo"><img src="images/real/real-profile-pic.jpg" alt="ASC Logo" style="height:32px;width:32px;border-radius:50%;vertical-align:middle;margin-right:8px;object-fit:cover;">AFTER <span>School</span> COFFEE</a>
     <ul class="nav-links">
       <li><a href="#about">關於</a></li>
       <li><a href="#menu">菜單</a></li>
@@ -569,24 +574,32 @@
 
 <!-- Photo Wall Gallery -->
 <div class="gallery">
-  <div class="gallery-title reveal">Our <span>Watercolor</span> World</div>
+  <div class="gallery-title reveal">Our <span>Real</span> + <span>Watercolor</span> World</div>
   <div class="gallery-scroll">
+    <div class="gallery-item"><img src="images/real/real-display-case.jpg" alt="After School Coffee 真實店面吧台" loading="lazy"></div>
     <div class="gallery-item"><img src="images/hero-golden-hour.png" alt="咖啡店黃昏外觀水彩畫" loading="lazy"></div>
+    <div class="gallery-item"><img src="images/real/real-caramel-coffee.jpg" alt="After School Coffee 焦糖蜂巢咖啡" loading="lazy"></div>
     <div class="gallery-item"><img src="images/about-morning-peace.png" alt="寧靜早晨咖啡時光水彩畫" loading="lazy"></div>
+    <div class="gallery-item"><img src="images/real/real-store-interior.jpg" alt="After School Coffee 真實店面全景" loading="lazy"></div>
     <div class="gallery-item"><img src="images/menu-latte-art.png" alt="拿鐵拉花水彩畫" loading="lazy"></div>
+    <div class="gallery-item"><img src="images/real/real-strawberry-dessert.jpg" alt="After School Coffee 草莓季飲品" loading="lazy"></div>
     <div class="gallery-item"><img src="images/menu-coffee-trio.png" alt="三款精品咖啡水彩畫" loading="lazy"></div>
+    <div class="gallery-item"><img src="images/real/real-chocolate-coffee.jpg" alt="After School Coffee 巧克力咖啡" loading="lazy"></div>
     <div class="gallery-item"><img src="images/menu-sandwiches.png" alt="熱壓三明治水彩畫" loading="lazy"></div>
-    <div class="gallery-item"><img src="images/menu-drinks.png" alt="清涼飲品水彩畫" loading="lazy"></div>
-    <div class="gallery-item"><img src="images/space-interior.png" alt="咖啡店舒適空間水彩畫" loading="lazy"></div>
+    <div class="gallery-item"><img src="images/feature-meet.png" alt="同路人相遇水彩畫" loading="lazy"></div>
     <div class="gallery-item"><img src="images/location-macau-street.png" alt="澳門街景與咖啡店水彩畫" loading="lazy"></div>
     <!-- Duplicate for seamless scroll -->
+    <div class="gallery-item"><img src="images/real/real-display-case.jpg" alt="After School Coffee 真實店面吧台" loading="lazy"></div>
     <div class="gallery-item"><img src="images/hero-golden-hour.png" alt="咖啡店黃昏外觀水彩畫" loading="lazy"></div>
+    <div class="gallery-item"><img src="images/real/real-caramel-coffee.jpg" alt="After School Coffee 焦糖蜂巢咖啡" loading="lazy"></div>
     <div class="gallery-item"><img src="images/about-morning-peace.png" alt="寧靜早晨咖啡時光水彩畫" loading="lazy"></div>
+    <div class="gallery-item"><img src="images/real/real-store-interior.jpg" alt="After School Coffee 真實店面全景" loading="lazy"></div>
     <div class="gallery-item"><img src="images/menu-latte-art.png" alt="拿鐵拉花水彩畫" loading="lazy"></div>
+    <div class="gallery-item"><img src="images/real/real-strawberry-dessert.jpg" alt="After School Coffee 草莓季飲品" loading="lazy"></div>
     <div class="gallery-item"><img src="images/menu-coffee-trio.png" alt="三款精品咖啡水彩畫" loading="lazy"></div>
+    <div class="gallery-item"><img src="images/real/real-chocolate-coffee.jpg" alt="After School Coffee 巧克力咖啡" loading="lazy"></div>
     <div class="gallery-item"><img src="images/menu-sandwiches.png" alt="熱壓三明治水彩畫" loading="lazy"></div>
-    <div class="gallery-item"><img src="images/menu-drinks.png" alt="清涼飲品水彩畫" loading="lazy"></div>
-    <div class="gallery-item"><img src="images/space-interior.png" alt="咖啡店舒適空間水彩畫" loading="lazy"></div>
+    <div class="gallery-item"><img src="images/feature-meet.png" alt="同路人相遇水彩畫" loading="lazy"></div>
     <div class="gallery-item"><img src="images/location-macau-street.png" alt="澳門街景與咖啡店水彩畫" loading="lazy"></div>
   </div>
 </div>
@@ -698,7 +711,7 @@
     <p class="section-subtitle reveal">心靈中的一個休息站</p>
 
     <div class="space-hero reveal">
-      <img src="images/space-interior.png" alt="After School Coffee 心靈休息站意象水彩畫" loading="lazy">
+      <img src="images/real/real-display-case.jpg" alt="After School Coffee 真實店面內部 — 吧台與咖啡機" loading="lazy">
       <div class="space-hero-overlay">
         <div class="space-hero-text">
           <h3>Your Soul Rest Stop</h3>
@@ -709,22 +722,22 @@
 
     <div class="features">
       <div class="feature reveal">
-        <div class="icon">🤝</div>
+        <img src="images/feature-meet.png" alt="兩位媽媽在外帶窗口相遇聊天" class="icon-img" loading="lazy">
         <h4>同路人相遇</h4>
         <p>遇見和你一樣的爸媽<br>一句問候就是力量</p>
       </div>
       <div class="feature reveal">
-        <div class="icon">☕</div>
+        <img src="images/feature-takeaway.png" alt="手持外帶咖啡杯拉花特寫" class="icon-img" loading="lazy">
         <h4>溫暖帶走</h4>
         <p>外帶一杯用心咖啡<br>帶著小確幸出發</p>
       </div>
       <div class="feature reveal">
-        <div class="icon">💛</div>
+        <img src="images/feature-comfort.png" alt="兩位家長在咖啡店外長椅上分享笑容" class="icon-img" loading="lazy">
         <h4>互相慰藉</h4>
         <p>分享育兒點滴<br>你不是一個人在戰鬥</p>
       </div>
       <div class="feature reveal">
-        <div class="icon">✨</div>
+        <img src="images/feature-recharge.png" alt="媽媽自信地走在澳門街頭手持咖啡" class="icon-img" loading="lazy">
         <h4>心靈充電</h4>
         <p>照顧好自己<br>才能更好地照顧家人</p>
       </div>
