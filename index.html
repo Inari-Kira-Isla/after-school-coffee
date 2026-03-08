@@ -16,7 +16,7 @@
   <meta property="og:url" content="https://inari-kira-isla.github.io/after-school-coffee">
   <meta property="og:locale" content="zh_TW">
   <meta property="og:site_name" content="After School Coffee">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1200&q=80">
+  <meta property="og:image" content="https://inari-kira-isla.github.io/after-school-coffee/images/hero-golden-hour.png">
 
   <!-- CafeOrCoffeeShop Schema -->
   <script type="application/ld+json">
@@ -56,7 +56,7 @@
         "closes": "18:00"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1200&q=80",
+    "image": "https://inari-kira-isla.github.io/after-school-coffee/images/hero-golden-hour.png",
     "hasMenu": {
       "@type": "Menu",
       "hasMenuSection": [
@@ -197,178 +197,336 @@
   }
   </script>
 
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Noto Sans TC', sans-serif; color: #3E2723; line-height: 1.7; }
+    body { font-family: 'Noto Sans TC', sans-serif; color: #3E2723; line-height: 1.7; overflow-x: hidden; }
+
+    /* ── Scroll Animations ── */
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-60px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right { opacity: 0; transform: translateX(60px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
 
     /* ── Navigation ── */
     nav {
       position: fixed; top: 0; width: 100%; z-index: 100;
-      background: rgba(62, 39, 35, 0.92); backdrop-filter: blur(10px);
-      padding: 14px 0; transition: background 0.3s;
+      background: transparent; padding: 18px 0;
+      transition: background 0.4s, padding 0.4s, box-shadow 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(62, 39, 35, 0.95); backdrop-filter: blur(12px);
+      padding: 10px 0; box-shadow: 0 2px 20px rgba(0,0,0,0.2);
     }
     nav .nav-inner {
-      max-width: 1100px; margin: 0 auto; padding: 0 24px;
+      max-width: 1200px; margin: 0 auto; padding: 0 32px;
       display: flex; justify-content: space-between; align-items: center;
     }
-    nav .logo { color: #fff; font-size: 1.1rem; font-weight: 700; text-decoration: none; letter-spacing: 1px; }
-    nav .logo span { color: #D7A86E; }
-    nav .nav-links { display: flex; gap: 24px; list-style: none; }
-    nav .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.85rem; font-weight: 400; transition: color 0.2s; }
-    nav .nav-links a:hover { color: #D7A86E; }
+    nav .logo {
+      font-family: 'Playfair Display', serif;
+      color: #fff; font-size: 1.2rem; font-weight: 700; text-decoration: none; letter-spacing: 2px;
+    }
+    nav .logo span { color: #E8A87C; font-style: italic; }
+    nav .nav-links { display: flex; gap: 28px; list-style: none; }
+    nav .nav-links a {
+      color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.85rem;
+      font-weight: 400; transition: color 0.3s; position: relative;
+    }
+    nav .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px;
+      background: #E8A87C; transition: width 0.3s;
+    }
+    nav .nav-links a:hover { color: #E8A87C; }
+    nav .nav-links a:hover::after { width: 100%; }
 
-    /* ── Hero ── */
+    /* ── Hero — Full Illustration ── */
     .hero {
-      height: 100vh; display: flex; align-items: center; justify-content: center;
-      background: linear-gradient(rgba(30,15,10,0.55), rgba(30,15,10,0.55)),
-                  url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1600&q=80') center/cover no-repeat;
-      background-attachment: fixed; text-align: center; color: #fff;
+      height: 100vh; position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
     }
-    .hero-content h1 { font-size: 3.2rem; font-weight: 700; margin-bottom: 12px; letter-spacing: 3px; }
-    .hero-content .tagline { font-size: 1.2rem; font-weight: 300; opacity: 0.9; margin-bottom: 32px; }
-    .hero-content .cta {
-      display: inline-block; padding: 14px 36px; border: 2px solid #D7A86E;
-      color: #D7A86E; text-decoration: none; font-size: 0.95rem; letter-spacing: 2px;
-      transition: all 0.3s;
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: url('images/hero-golden-hour.png') center/cover no-repeat;
     }
-    .hero-content .cta:hover { background: #D7A86E; color: #1e0f0a; }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(
+        135deg,
+        rgba(62,39,35,0.5) 0%,
+        rgba(30,15,10,0.3) 50%,
+        rgba(62,39,35,0.5) 100%
+      );
+    }
+    .hero-content {
+      position: relative; z-index: 2; text-align: center; color: #fff;
+      max-width: 700px; padding: 0 24px;
+    }
+    .hero-badge {
+      display: inline-block; font-size: 0.75rem; letter-spacing: 4px;
+      text-transform: uppercase; color: #E8A87C; margin-bottom: 20px;
+      border: 1px solid rgba(232,168,124,0.4); padding: 6px 20px; border-radius: 20px;
+    }
+    .hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem; font-weight: 700; margin-bottom: 16px;
+      letter-spacing: 4px; line-height: 1.1;
+    }
+    .hero-content .tagline {
+      font-size: 1.15rem; font-weight: 300; opacity: 0.9; margin-bottom: 40px;
+      letter-spacing: 1px;
+    }
+    .hero-cta {
+      display: inline-block; padding: 16px 44px; background: #E8A87C;
+      color: #3E2723; text-decoration: none; font-size: 0.9rem;
+      font-weight: 500; letter-spacing: 2px; border-radius: 2px;
+      transition: all 0.3s; box-shadow: 0 4px 20px rgba(232,168,124,0.3);
+    }
+    .hero-cta:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(232,168,124,0.4); }
+    .hero-scroll {
+      position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+      z-index: 2; color: rgba(255,255,255,0.6); font-size: 0.75rem;
+      letter-spacing: 3px; text-decoration: none; animation: float 2s ease-in-out infinite;
+    }
+    @keyframes float { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
 
-    /* ── Sections ── */
-    section { padding: 100px 24px; }
+    /* ── Sections Common ── */
+    section { padding: 120px 32px; position: relative; }
     .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.7rem; letter-spacing: 5px; text-transform: uppercase;
+      color: #E8A87C; text-align: center; margin-bottom: 12px; font-weight: 500;
+    }
     .section-title {
-      font-size: 2rem; font-weight: 700; text-align: center; margin-bottom: 12px;
-      color: #3E2723;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem; font-weight: 700; text-align: center;
+      margin-bottom: 12px; color: #3E2723;
     }
     .section-subtitle {
-      text-align: center; color: #8D6E63; font-size: 0.95rem; margin-bottom: 60px;
-      font-weight: 300;
+      text-align: center; color: #8D6E63; font-size: 0.95rem; margin-bottom: 64px;
+      font-weight: 300; max-width: 500px; margin-left: auto; margin-right: auto;
     }
 
     /* ── About ── */
-    .about { background: #FFF8F0; }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-    .about-text p { margin-bottom: 18px; color: #5D4037; font-size: 1.05rem; }
-    .about-text .highlight { color: #D7A86E; font-weight: 500; }
+    .about { background: #FDF8F3; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-text p { margin-bottom: 20px; color: #5D4037; font-size: 1.05rem; line-height: 1.9; }
+    .about-text .highlight {
+      color: #C17A50; font-weight: 500;
+      background: linear-gradient(transparent 60%, rgba(232,168,124,0.2) 60%);
+    }
+    .about-img-wrap { position: relative; }
     .about-img {
-      width: 100%; height: 450px; object-fit: cover; border-radius: 12px;
-      box-shadow: 0 20px 60px rgba(62,39,35,0.15);
+      width: 100%; border-radius: 16px;
+      box-shadow: 0 24px 64px rgba(62,39,35,0.15);
+    }
+    .about-img-accent {
+      position: absolute; top: -20px; right: -20px; width: 120px; height: 120px;
+      border: 2px solid #E8A87C; border-radius: 12px; z-index: -1;
+    }
+
+    /* ── Photo Wall Gallery ── */
+    .gallery { background: #3E2723; padding: 100px 32px; overflow: hidden; }
+    .gallery-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; color: #fff; text-align: center; margin-bottom: 48px;
+    }
+    .gallery-title span { color: #E8A87C; }
+    .gallery-scroll {
+      display: flex; gap: 20px; animation: scroll-left 30s linear infinite;
+      width: max-content;
+    }
+    .gallery-scroll:hover { animation-play-state: paused; }
+    .gallery-item {
+      flex-shrink: 0; width: 320px; height: 240px; border-radius: 12px;
+      overflow: hidden; position: relative;
+    }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+    .gallery-item:hover img { transform: scale(1.08); }
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
 
     /* ── Menu ── */
-    .menu {
-      background: linear-gradient(rgba(30,15,10,0.8), rgba(30,15,10,0.8)),
-                  url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1600&q=80') center/cover no-repeat;
-      background-attachment: fixed; color: #fff;
+    .menu { position: relative; color: #fff; overflow: hidden; }
+    .menu-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: url('images/menu-latte-art.png') center/cover no-repeat;
     }
+    .menu-bg-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: rgba(30,15,10,0.82);
+    }
+    .menu .section-inner { position: relative; z-index: 2; }
     .menu .section-title { color: #fff; }
-    .menu .section-subtitle { color: rgba(255,255,255,0.7); }
-    .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-    .menu-card {
-      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 12px; padding: 32px; backdrop-filter: blur(5px);
+    .menu .section-label { color: #E8A87C; }
+    .menu .section-subtitle { color: rgba(255,255,255,0.6); }
+
+    .menu-showcase {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-bottom: 48px;
     }
-    .menu-card h3 { color: #D7A86E; font-size: 1.15rem; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid rgba(215,168,110,0.3); }
-    .menu-item { display: flex; justify-content: space-between; align-items: baseline; padding: 8px 0; border-bottom: 1px dotted rgba(255,255,255,0.1); }
+    .menu-showcase-item {
+      border-radius: 16px; overflow: hidden; position: relative; height: 280px;
+    }
+    .menu-showcase-item img {
+      width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;
+    }
+    .menu-showcase-item:hover img { transform: scale(1.05); }
+    .menu-showcase-item .caption {
+      position: absolute; bottom: 0; left: 0; right: 0; padding: 20px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      font-family: 'Playfair Display', serif; font-size: 1.1rem;
+    }
+
+    .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
+    .menu-card {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px; padding: 32px; backdrop-filter: blur(8px);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .menu-card:hover { border-color: rgba(232,168,124,0.3); transform: translateY(-4px); }
+    .menu-card h3 {
+      color: #E8A87C; font-size: 1.1rem; margin-bottom: 20px;
+      padding-bottom: 12px; border-bottom: 1px solid rgba(232,168,124,0.2);
+      font-family: 'Playfair Display', serif;
+    }
+    .menu-item {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: 10px 0; border-bottom: 1px dotted rgba(255,255,255,0.08);
+    }
     .menu-item:last-child { border-bottom: none; }
     .menu-item .name { font-size: 0.95rem; }
-    .menu-item .name small { display: block; font-size: 0.8rem; color: rgba(255,255,255,0.5); }
-    .menu-item .price { color: #D7A86E; font-weight: 500; white-space: nowrap; margin-left: 12px; }
+    .menu-item .name small { display: block; font-size: 0.78rem; color: rgba(255,255,255,0.4); margin-top: 2px; }
+    .menu-item .price { color: #E8A87C; font-weight: 500; white-space: nowrap; margin-left: 16px; font-size: 0.95rem; }
+
     .combo-box {
-      margin-top: 40px; background: rgba(215,168,110,0.15); border: 1px solid rgba(215,168,110,0.3);
-      border-radius: 12px; padding: 28px; text-align: center;
+      margin-top: 48px; background: rgba(232,168,124,0.1); border: 1px solid rgba(232,168,124,0.25);
+      border-radius: 16px; padding: 36px; text-align: center;
     }
-    .combo-box h3 { color: #D7A86E; margin-bottom: 16px; border: none; padding: 0; }
-    .combo-item { font-size: 1rem; margin-bottom: 8px; }
-    .combo-price { color: #D7A86E; font-size: 1.3rem; font-weight: 700; }
+    .combo-box h3 {
+      color: #E8A87C; margin-bottom: 20px; font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; border: none; padding: 0;
+    }
+    .combo-item { font-size: 1rem; margin-bottom: 10px; color: rgba(255,255,255,0.85); }
+    .combo-price { color: #E8A87C; font-size: 1.4rem; font-weight: 700; }
 
     /* ── Space ── */
-    .space { background: #FFF8F0; }
-    .space-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 50px; }
-    .space-card {
-      position: relative; border-radius: 12px; overflow: hidden; height: 320px;
-      box-shadow: 0 10px 40px rgba(62,39,35,0.1);
+    .space { background: #FDF8F3; }
+    .space-hero {
+      width: 100%; border-radius: 20px; overflow: hidden;
+      margin-bottom: 60px; position: relative; height: 480px;
+      box-shadow: 0 20px 60px rgba(62,39,35,0.12);
     }
-    .space-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-    .space-card:hover img { transform: scale(1.05); }
-    .space-card .overlay {
-      position: absolute; bottom: 0; left: 0; right: 0; padding: 24px;
-      background: linear-gradient(transparent, rgba(30,15,10,0.85));
-      color: #fff;
+    .space-hero img { width: 100%; height: 100%; object-fit: cover; }
+    .space-hero-overlay {
+      position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      background: rgba(62,39,35,0.25);
     }
-    .space-card .overlay h4 { font-size: 1.1rem; margin-bottom: 4px; }
-    .space-card .overlay p { font-size: 0.85rem; opacity: 0.8; }
-    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
+    .space-hero-text {
+      color: #fff; text-align: center; padding: 40px;
+      background: rgba(62,39,35,0.5); border-radius: 12px; backdrop-filter: blur(4px);
+    }
+    .space-hero-text h3 {
+      font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 8px;
+    }
+    .space-hero-text p { font-size: 1rem; opacity: 0.9; }
+
+    .features { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
     .feature {
-      text-align: center; padding: 28px 20px;
-      background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(62,39,35,0.06);
+      text-align: center; padding: 36px 20px;
+      background: #fff; border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(62,39,35,0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-    .feature .icon { font-size: 2rem; margin-bottom: 12px; }
-    .feature h4 { font-size: 1rem; color: #3E2723; margin-bottom: 6px; }
-    .feature p { font-size: 0.85rem; color: #8D6E63; }
+    .feature:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(62,39,35,0.1); }
+    .feature .icon { font-size: 2.2rem; margin-bottom: 16px; }
+    .feature h4 { font-size: 1rem; color: #3E2723; margin-bottom: 8px; }
+    .feature p { font-size: 0.85rem; color: #8D6E63; line-height: 1.6; }
 
     /* ── Location ── */
-    .location { background: #3E2723; color: #fff; }
+    .location { position: relative; color: #fff; overflow: hidden; }
+    .location-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: url('images/location-macau-street.png') center/cover no-repeat;
+    }
+    .location-bg-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: rgba(30,15,10,0.75);
+    }
+    .location .section-inner { position: relative; z-index: 2; }
     .location .section-title { color: #fff; }
+    .location .section-label { color: #E8A87C; }
     .location .section-subtitle { color: rgba(255,255,255,0.6); }
     .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
     .location-info { font-size: 1.05rem; }
-    .location-info .info-row { display: flex; gap: 16px; margin-bottom: 20px; align-items: flex-start; }
-    .location-info .info-icon { font-size: 1.3rem; flex-shrink: 0; width: 32px; text-align: center; }
-    .location-info .info-text { color: rgba(255,255,255,0.85); }
-    .location-info .info-text strong { color: #D7A86E; display: block; margin-bottom: 4px; }
+    .info-row { display: flex; gap: 18px; margin-bottom: 24px; align-items: flex-start; }
+    .info-icon { font-size: 1.4rem; flex-shrink: 0; width: 36px; text-align: center; }
+    .info-text { color: rgba(255,255,255,0.85); }
+    .info-text strong { color: #E8A87C; display: block; margin-bottom: 4px; font-size: 0.85rem; letter-spacing: 1px; }
     .location-map {
-      width: 100%; height: 350px; border-radius: 12px; border: 2px solid rgba(255,255,255,0.1);
+      width: 100%; height: 380px; border-radius: 16px;
+      border: 2px solid rgba(255,255,255,0.1);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.2);
     }
 
     /* ── Footer ── */
     footer {
-      background: #2C1B16; padding: 48px 24px 24px; color: rgba(255,255,255,0.6);
+      background: #1A0F0A; padding: 60px 32px 28px; color: rgba(255,255,255,0.5);
       text-align: center; font-size: 0.85rem;
     }
-    footer .eco-title { color: #D7A86E; font-size: 0.8rem; margin-bottom: 12px; letter-spacing: 2px; }
-    footer .eco-links { margin-bottom: 24px; }
-    footer .eco-links a {
-      color: rgba(255,255,255,0.5); text-decoration: none; margin: 0 10px;
-      font-size: 0.8rem; transition: color 0.2s;
+    footer .eco-title {
+      color: #E8A87C; font-size: 0.7rem; margin-bottom: 16px;
+      letter-spacing: 4px; text-transform: uppercase;
     }
-    footer .eco-links a:hover { color: #D7A86E; }
-    footer .copy { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px; }
+    footer .eco-links { margin-bottom: 28px; }
+    footer .eco-links a {
+      color: rgba(255,255,255,0.4); text-decoration: none; margin: 0 12px;
+      font-size: 0.8rem; transition: color 0.3s;
+    }
+    footer .eco-links a:hover { color: #E8A87C; }
+    footer .copy { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 24px; }
     footer address { font-style: normal; margin-bottom: 8px; }
 
-    /* ── Responsive ── */
-    @media (max-width: 768px) {
-      .hero-content h1 { font-size: 2rem; }
-      .hero-content .tagline { font-size: 1rem; }
-      .about-grid { grid-template-columns: 1fr; gap: 30px; }
-      .about-img { height: 280px; }
-      .space-grid { grid-template-columns: 1fr; }
-      .space-card { height: 240px; }
-      .location-grid { grid-template-columns: 1fr; }
-      nav .nav-links { gap: 14px; }
-      nav .nav-links a { font-size: 0.75rem; }
-      section { padding: 60px 16px; }
-      .hero { background-attachment: scroll; }
-      .menu { background-attachment: scroll; }
-    }
-
-    /* ── Articles (hidden visually, for AI crawlers) ── */
+    /* ── Articles (for AI crawlers) ── */
     .ai-articles { padding: 40px 24px; background: #f9f5f0; }
     .ai-articles h2 { font-size: 1.2rem; color: #5D4037; margin-bottom: 16px; }
     .ai-articles ul { list-style: none; padding: 0; }
     .ai-articles li { margin-bottom: 8px; }
     .ai-articles a { color: #8D6E63; font-size: 0.85rem; text-decoration: none; }
-    .ai-articles a:hover { color: #D7A86E; }
+    .ai-articles a:hover { color: #E8A87C; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .hero-content h1 { font-size: 2.4rem; }
+      .hero-content .tagline { font-size: 0.95rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 36px; }
+      .about-img-accent { display: none; }
+      .menu-showcase { grid-template-columns: 1fr; }
+      .menu-showcase-item { height: 200px; }
+      .space-hero { height: 300px; }
+      .features { grid-template-columns: repeat(2, 1fr); }
+      .location-grid { grid-template-columns: 1fr; }
+      .gallery-item { width: 260px; height: 180px; }
+      nav .nav-links { gap: 14px; }
+      nav .nav-links a { font-size: 0.75rem; }
+      section { padding: 80px 20px; }
+    }
+    @media (max-width: 480px) {
+      .hero-content h1 { font-size: 1.8rem; letter-spacing: 2px; }
+      .features { grid-template-columns: 1fr; }
+      .hero-badge { font-size: 0.65rem; letter-spacing: 3px; }
+    }
   </style>
 </head>
 <body>
 
 <!-- Navigation -->
-<nav>
+<nav id="navbar">
   <div class="nav-inner">
-    <a href="#" class="logo">AFTER <span>SCHOOL</span> COFFEE</a>
+    <a href="#" class="logo">AFTER <span>School</span> COFFEE</a>
     <ul class="nav-links">
       <li><a href="#about">關於</a></li>
       <li><a href="#menu">菜單</a></li>
@@ -380,38 +538,87 @@
 
 <!-- Hero -->
 <section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
   <div class="hero-content">
-    <h1>AFTER SCHOOL COFFEE</h1>
+    <div class="hero-badge">Macau's Parent-Friendly Cafe</div>
+    <h1>AFTER SCHOOL<br>COFFEE</h1>
     <p class="tagline">送完小朋友上學後，屬於你的喘息時光</p>
-    <a href="#menu" class="cta">探索菜單</a>
+    <a href="#menu" class="hero-cta">探索菜單</a>
   </div>
+  <a href="#about" class="hero-scroll">SCROLL</a>
 </section>
 
 <!-- About -->
 <section id="about" class="about">
   <div class="section-inner">
     <div class="about-grid">
-      <div class="about-text">
-        <h2 class="section-title" style="text-align:left;margin-bottom:24px;">爸媽的課後充電站</h2>
+      <div class="about-text reveal-left">
+        <div class="section-label" style="text-align:left">OUR STORY</div>
+        <h2 class="section-title" style="text-align:left;margin-bottom:28px;">爸媽的課後充電站</h2>
         <p>每天早上送完小朋友上學後，你終於有了一段屬於自己的時間。不是要你做什麼偉大的事，只是<span class="highlight">好好喝一杯咖啡、安靜坐一會兒</span>。</p>
         <p>After School Coffee 就是為這樣的你而存在的。一杯用心沖煮的咖啡、一份現烤熱壓三明治、一個可以放鬆的角落。</p>
         <p>我們相信，<span class="highlight">照顧好自己的爸媽，才能更好地照顧家人</span>。所以這裡沒有催促、沒有壓力，只有一個讓你喘口氣的空間。</p>
       </div>
-      <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=800&q=80" alt="咖啡師手沖咖啡" class="about-img" loading="lazy">
+      <div class="about-img-wrap reveal-right">
+        <img src="images/about-morning-peace.png" alt="家長在咖啡店享受寧靜的早晨時光" class="about-img" loading="lazy">
+        <div class="about-img-accent"></div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- Photo Wall Gallery -->
+<div class="gallery">
+  <div class="gallery-title reveal">Our <span>Watercolor</span> World</div>
+  <div class="gallery-scroll">
+    <div class="gallery-item"><img src="images/hero-golden-hour.png" alt="咖啡店黃昏外觀水彩畫" loading="lazy"></div>
+    <div class="gallery-item"><img src="images/about-morning-peace.png" alt="寧靜早晨咖啡時光水彩畫" loading="lazy"></div>
+    <div class="gallery-item"><img src="images/menu-latte-art.png" alt="拿鐵拉花水彩畫" loading="lazy"></div>
+    <div class="gallery-item"><img src="images/menu-coffee-trio.png" alt="三款精品咖啡水彩畫" loading="lazy"></div>
+    <div class="gallery-item"><img src="images/menu-sandwiches.png" alt="熱壓三明治水彩畫" loading="lazy"></div>
+    <div class="gallery-item"><img src="images/menu-drinks.png" alt="清涼飲品水彩畫" loading="lazy"></div>
+    <div class="gallery-item"><img src="images/space-interior.png" alt="咖啡店舒適空間水彩畫" loading="lazy"></div>
+    <div class="gallery-item"><img src="images/location-macau-street.png" alt="澳門街景與咖啡店水彩畫" loading="lazy"></div>
+    <!-- Duplicate for seamless scroll -->
+    <div class="gallery-item"><img src="images/hero-golden-hour.png" alt="咖啡店黃昏外觀水彩畫" loading="lazy"></div>
+    <div class="gallery-item"><img src="images/about-morning-peace.png" alt="寧靜早晨咖啡時光水彩畫" loading="lazy"></div>
+    <div class="gallery-item"><img src="images/menu-latte-art.png" alt="拿鐵拉花水彩畫" loading="lazy"></div>
+    <div class="gallery-item"><img src="images/menu-coffee-trio.png" alt="三款精品咖啡水彩畫" loading="lazy"></div>
+    <div class="gallery-item"><img src="images/menu-sandwiches.png" alt="熱壓三明治水彩畫" loading="lazy"></div>
+    <div class="gallery-item"><img src="images/menu-drinks.png" alt="清涼飲品水彩畫" loading="lazy"></div>
+    <div class="gallery-item"><img src="images/space-interior.png" alt="咖啡店舒適空間水彩畫" loading="lazy"></div>
+    <div class="gallery-item"><img src="images/location-macau-street.png" alt="澳門街景與咖啡店水彩畫" loading="lazy"></div>
+  </div>
+</div>
+
 <!-- Menu -->
 <section id="menu" class="menu">
+  <div class="menu-bg"></div>
+  <div class="menu-bg-overlay"></div>
   <div class="section-inner">
-    <h2 class="section-title">菜單 MENU</h2>
-    <p class="section-subtitle">每一杯都是用心之作 · 價格以澳門幣 MOP 計</p>
+    <div class="section-label reveal">MENU</div>
+    <h2 class="section-title reveal" style="color:#fff">菜單</h2>
+    <p class="section-subtitle reveal">每一杯都是用心之作 · 價格以澳門幣 MOP 計</p>
+
+    <div class="menu-showcase reveal">
+      <div class="menu-showcase-item">
+        <img src="images/menu-coffee-trio.png" alt="精品咖啡系列" loading="lazy">
+        <div class="caption">精品咖啡 Coffee</div>
+      </div>
+      <div class="menu-showcase-item">
+        <img src="images/menu-sandwiches.png" alt="現烤熱壓三明治" loading="lazy">
+        <div class="caption">熱壓三明治 Sandwiches</div>
+      </div>
+      <div class="menu-showcase-item">
+        <img src="images/menu-drinks.png" alt="清涼飲品" loading="lazy">
+        <div class="caption">清涼飲品 Drinks</div>
+      </div>
+    </div>
 
     <div class="menu-grid">
-      <!-- Coffee -->
-      <div class="menu-card">
-        <h3>☕ 咖啡 Coffee</h3>
+      <div class="menu-card reveal">
+        <h3>Coffee</h3>
         <div class="menu-item">
           <span class="name">招牌美式<small>Signature Americano</small></span>
           <span class="price">27 / 30</span>
@@ -434,9 +641,8 @@
         </div>
       </div>
 
-      <!-- Espresso + Non-Coffee -->
-      <div class="menu-card">
-        <h3>🫘 意式濃縮 Espresso</h3>
+      <div class="menu-card reveal">
+        <h3>Espresso</h3>
         <div class="menu-item">
           <span class="name">Single Shot</span>
           <span class="price">15</span>
@@ -449,8 +655,7 @@
           <span class="name">Triple Shot</span>
           <span class="price">25</span>
         </div>
-
-        <h3 style="margin-top:24px;">🍋 非咖啡飲品</h3>
+        <h3 style="margin-top:24px;">Non-Coffee</h3>
         <div class="menu-item">
           <span class="name">鮮檸檬綠茶<small>Fresh Lemon Green Tea</small></span>
           <span class="price">18</span>
@@ -465,23 +670,21 @@
         </div>
       </div>
 
-      <!-- Food -->
-      <div class="menu-card">
-        <h3>🥪 現烤熱壓三明治</h3>
+      <div class="menu-card reveal">
+        <h3>Sandwiches</h3>
         <div class="menu-item">
-          <span class="name">任選二款<small>Any 2 Choose</small></span>
+          <span class="name">現烤熱壓三明治<small>任選二款 Any 2</small></span>
           <span class="price">23</span>
         </div>
         <div class="menu-item">
-          <span class="name">任選三款<small>Any 3 Choose</small></span>
+          <span class="name">現烤熱壓三明治<small>任選三款 Any 3</small></span>
           <span class="price">27</span>
         </div>
       </div>
     </div>
 
-    <!-- Combo Set -->
-    <div class="combo-box">
-      <h3>🎉 超值套餐 Combo Set</h3>
+    <div class="combo-box reveal">
+      <h3>Combo Set</h3>
       <div class="combo-item">任選三款三明治 + 任何咖啡 ＝ <span class="combo-price">49 / 52</span></div>
       <div class="combo-item">任選三款三明治 + 其他飲品 ＝ <span class="combo-price">40</span></div>
     </div>
@@ -491,50 +694,37 @@
 <!-- Space -->
 <section id="space" class="space">
   <div class="section-inner">
-    <h2 class="section-title">空間 SPACE</h2>
-    <p class="section-subtitle">一個讓你放慢腳步的地方</p>
+    <div class="section-label reveal">SPACE</div>
+    <h2 class="section-title reveal">空間</h2>
+    <p class="section-subtitle reveal">一個讓你放慢腳步的地方</p>
 
-    <div class="space-grid">
-      <div class="space-card">
-        <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=600&q=80" alt="舒適閱讀角落" loading="lazy">
-        <div class="overlay">
-          <h4>安靜閱讀角</h4>
-          <p>一個人的咖啡時光</p>
-        </div>
-      </div>
-      <div class="space-card">
-        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80" alt="精品咖啡" loading="lazy">
-        <div class="overlay">
-          <h4>精品咖啡</h4>
-          <p>每杯用心沖煮</p>
-        </div>
-      </div>
-      <div class="space-card">
-        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80" alt="手沖咖啡" loading="lazy">
-        <div class="overlay">
-          <h4>輕食搭配</h4>
-          <p>現烤熱壓三明治</p>
+    <div class="space-hero reveal">
+      <img src="images/space-interior.png" alt="After School Coffee 溫馨舒適的咖啡店內部空間" loading="lazy">
+      <div class="space-hero-overlay">
+        <div class="space-hero-text">
+          <h3>Your Breathing Space</h3>
+          <p>安靜、舒適、零壓力</p>
         </div>
       </div>
     </div>
 
     <div class="features">
-      <div class="feature">
+      <div class="feature reveal">
         <div class="icon">📶</div>
         <h4>免費 Wi-Fi</h4>
         <p>高速穩定網路<br>密碼向店員索取</p>
       </div>
-      <div class="feature">
+      <div class="feature reveal">
         <div class="icon">🔌</div>
         <h4>充電插座</h4>
         <p>多個座位附近<br>提供充電服務</p>
       </div>
-      <div class="feature">
+      <div class="feature reveal">
         <div class="icon">☕</div>
         <h4>平價精品</h4>
         <p>MOP$27 起<br>真正的精品咖啡</p>
       </div>
-      <div class="feature">
+      <div class="feature reveal">
         <div class="icon">🤫</div>
         <h4>安靜空間</h4>
         <p>適合閱讀、工作<br>或只是放空發呆</p>
@@ -545,16 +735,19 @@
 
 <!-- Location -->
 <section id="location" class="location">
+  <div class="location-bg"></div>
+  <div class="location-bg-overlay"></div>
   <div class="section-inner">
-    <h2 class="section-title">位置 LOCATION</h2>
-    <p class="section-subtitle">歡迎隨時來坐坐</p>
+    <div class="section-label reveal">LOCATION</div>
+    <h2 class="section-title reveal" style="color:#fff">位置</h2>
+    <p class="section-subtitle reveal">歡迎隨時來坐坐</p>
 
     <div class="location-grid">
-      <div class="location-info">
+      <div class="location-info reveal-left">
         <div class="info-row">
           <span class="info-icon">📍</span>
           <div class="info-text">
-            <strong>地址</strong>
+            <strong>ADDRESS</strong>
             澳門新城市花園第18座地下BG鋪<br>
             <span style="font-size:0.85rem;opacity:0.6;">Nova Cidade Garden, Block 18, GF Shop BG, Macau</span>
           </div>
@@ -562,14 +755,14 @@
         <div class="info-row">
           <span class="info-icon">📞</span>
           <div class="info-text">
-            <strong>電話</strong>
-            <a href="tel:+85362823037" style="color:#D7A86E;text-decoration:none;">6282 3037</a>
+            <strong>PHONE</strong>
+            <a href="tel:+85362823037" style="color:#E8A87C;text-decoration:none;">6282 3037</a>
           </div>
         </div>
         <div class="info-row">
           <span class="info-icon">🕐</span>
           <div class="info-text">
-            <strong>營業時間</strong>
+            <strong>HOURS</strong>
             星期一至五　08:00 – 18:00<br>
             星期六、日　09:00 – 18:00
           </div>
@@ -577,12 +770,14 @@
         <div class="info-row">
           <span class="info-icon">💳</span>
           <div class="info-text">
-            <strong>付款方式</strong>
+            <strong>PAYMENT</strong>
             現金（MOP / HKD）· MPay
           </div>
         </div>
       </div>
-      <iframe class="location-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d920.5!2d113.5536!3d22.1932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDExJzM1LjUiTiAxMTPCsDMzJzEzLjAiRQ!5e0!3m2!1szh-TW!2smo!4v1709900000000" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="After School Coffee 地圖位置"></iframe>
+      <div class="reveal-right">
+        <iframe class="location-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d920.5!2d113.5536!3d22.1932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDExJzM1LjUiTiAxMTPCsDMzJzEzLjAiRQ!5e0!3m2!1szh-TW!2smo!4v1709900000000" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="After School Coffee 地圖位置"></iframe>
+      </div>
     </div>
   </div>
 </section>
@@ -608,7 +803,7 @@
 
 <!-- Footer -->
 <footer>
-  <div class="eco-title">CLOUDPIPE AI 知識圖譜生態系</div>
+  <div class="eco-title">CloudPipe AI Knowledge Graph Ecosystem</div>
   <div class="eco-links">
     <a href="https://inari-kira-isla.github.io/inari-global-foods">稻荷環球食品</a>
     <a href="https://inari-kira-isla.github.io/sea-urchin-delivery">海膽速遞</a>
@@ -619,9 +814,31 @@
   </div>
   <div class="copy">
     <address><strong>After School Coffee</strong> · 澳門新城市花園第18座地下BG鋪 · 6282 3037</address>
-    © 2026 After School Coffee · <a href="https://creativecommons.org/licenses/by/4.0/" style="color:#D7A86E;">CC BY 4.0</a>
+    &copy; 2026 After School Coffee &middot; <a href="https://creativecommons.org/licenses/by/4.0/" style="color:#E8A87C;">CC BY 4.0</a>
   </div>
 </footer>
+
+<!-- Scroll Animations & Nav -->
+<script>
+(function(){
+  // Nav scroll effect
+  var nav = document.getElementById('navbar');
+  window.addEventListener('scroll', function(){
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Reveal on scroll
+  var reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(function(el){ observer.observe(el); });
+})();
+</script>
 
 <!-- AI Tracker -->
 <img src="https://client-ai-tracker.inariglobal.workers.dev/after-school-coffee/pixel.gif" width="1" height="1" alt="" style="position:absolute;">
