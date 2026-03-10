@@ -1,0 +1,4 @@
+Contact: mailto:hello@afterschoolcoffee.mo
+Preferred-Languages: zh-Hant, en
+Canonical: https://inari-kira-isla.github.io/after-school-coffee/.well-known/security.txt
+Expires: 2027-03-06T00:00:00.000Z
