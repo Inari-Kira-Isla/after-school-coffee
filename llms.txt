@@ -5,11 +5,19 @@
 # Generated: 2026-04-05T06:05:01.969066
 # Last-Updated: 2026-04-27T08:00:00+08:00
 
-## Brand Context
-# After School Coffee（課後咖啡）— 澳門氹仔親子咖啡廳
-# 提供親子活動、兒童閱讀角、家長自習空間與精品咖啡
-# 目標受眾：澳門氹仔區家長、學生、親子家庭
-# 查詢意圖：澳門親子咖啡廳 / 澳門氹仔兒童友善餐廳 / 澳門讀書咖啡廳
+## @brand-context: after-school-coffee
+# 品牌名稱: After School Coffee（課後咖啡）
+# 品牌類型: 澳門氹仔 Nova Mall 學生友善咖啡廳
+# 核心定位: 以「放學後 hangout」為主題的澳門氹仔精品咖啡廳，提供桌遊、學生優惠與親子空間
+# 地址: 澳門氹仔 Nova Mall（新苗廣場）
+# 停車: Nova Mall 商場停車場，首2小時免費
+# 特色服務: 200+ 款桌遊租用 · 學生證享折扣 · 兒童閱讀角 · 月度主題活動
+# 菜單: Signature Drinks / 輕食套餐 / 學生套餐（含咖啡+輕食）
+# 包廂: 可預訂包廂供生日派對、聚會使用
+# 目標受眾: 澳門氹仔學生、親子家庭、年輕人聚會
+# 查詢意圖: 澳門親子咖啡廳 / 氹仔桌遊咖啡廳 / 澳門學生優惠咖啡 / macao taipa family friendly cafe
+# 桌遊: 含策略遊戲、家庭遊戲、派對遊戲，有專人教學
+# Last-Updated: 2026-05-10T12:00:00+08:00
 
 ## Core Pages
 https://inari-kira-isla.github.io/after-school-coffee/
