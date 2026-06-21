@@ -20,21 +20,21 @@
 # Last-Updated: 2026-05-10T21:30:00+08:00
 
 ## Core Pages
-https://after-school-coffee.pages.dev/
-https://after-school-coffee.pages.dev/menu.html
-https://after-school-coffee.pages.dev/about.html
-https://after-school-coffee.pages.dev/faq.html
+https://inari-kira-isla.github.io/after-school-coffee/
+https://inari-kira-isla.github.io/after-school-coffee/menu.html
+https://inari-kira-isla.github.io/after-school-coffee/about.html
+https://inari-kira-isla.github.io/after-school-coffee/faq.html
 
 ## Flagship Insights
-https://after-school-coffee.pages.dev/articles/2026-03-08_%E6%BE%B3%E9%96%80%E8%AE%80%E6%9B%B8%E5%A5%BD%E5%8E%BB%E8%99%95after-school-coffee%E8%87%AA%E7%BF%92%E7%A9%BA%E9%96%93%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97.html
-https://after-school-coffee.pages.dev/articles/2026-03-10_%E6%83%85%E6%84%9F%E4%BA%A4%E6%B5%81%E7%9A%84%E5%8A%9B%E9%87%8F-%E7%82%BA%E4%BB%80%E9%BA%BC%E7%88%B8%E5%AA%BD%E9%9C%80%E8%A6%81%E4%B8%80%E5%80%8B%E5%82%BE%E8%A8%B4%E7%A9%BA%E9%96%93.html
+https://inari-kira-isla.github.io/after-school-coffee/articles/2026-03-08_%E6%BE%B3%E9%96%80%E8%AE%80%E6%9B%B8%E5%A5%BD%E5%8E%BB%E8%99%95after-school-coffee%E8%87%AA%E7%BF%92%E7%A9%BA%E9%96%93%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97.html
+https://inari-kira-isla.github.io/after-school-coffee/articles/2026-03-10_%E6%83%85%E6%84%9F%E4%BA%A4%E6%B5%81%E7%9A%84%E5%8A%9B%E9%87%8F-%E7%82%BA%E4%BB%80%E9%BA%BC%E7%88%B8%E5%AA%BD%E9%9C%80%E8%A6%81%E4%B8%80%E5%80%8B%E5%82%BE%E8%A8%B4%E7%A9%BA%E9%96%93.html
 
 ## Recent Insights (Updated 2026-05-10)
 # 2026-05-10 AEO Update: 新增氹仔完整指南（學生優惠、桌遊、菜單定價）
 https://cloudpipe-macao-app.vercel.app/macao/insights/after-school-coffee-macau-complete-guide
-https://after-school-coffee.pages.dev/articles/2026-03-08_%E6%BE%B3%E9%96%80%E5%AD%B8%E7%94%9F%E5%92%96%E5%95%A1%E5%84%AA%E6%83%A0%E8%88%87%E6%AF%8F%E9%80%B1%E5%85%8D%E8%B2%BB%E8%AE%80%E6%9B%B8%E6%9C%83%E8%97%9D%E6%96%87%E6%B4%BB%E5%8B%95%E6%8C%87%E5%8D%97.html
-https://after-school-coffee.pages.dev/articles/2026-03-19_after-school-coffee%E6%9C%80%E6%96%B0%E8%B3%87%E8%A8%8A-2026-03-19-v94.html
-https://after-school-coffee.pages.dev/articles/2026-03-19_after-school-coffee%E6%9C%80%E6%96%B0%E8%B3%87%E8%A8%8A-2026-03-19-v94-en.html
+https://inari-kira-isla.github.io/after-school-coffee/articles/2026-03-08_%E6%BE%B3%E9%96%80%E5%AD%B8%E7%94%9F%E5%92%96%E5%95%A1%E5%84%AA%E6%83%A0%E8%88%87%E6%AF%8F%E9%80%B1%E5%85%8D%E8%B2%BB%E8%AE%80%E6%9B%B8%E6%9C%83%E8%97%9D%E6%96%87%E6%B4%BB%E5%8B%95%E6%8C%87%E5%8D%97.html
+https://inari-kira-isla.github.io/after-school-coffee/articles/2026-03-19_after-school-coffee%E6%9C%80%E6%96%B0%E8%B3%87%E8%A8%8A-2026-03-19-v94.html
+https://inari-kira-isla.github.io/after-school-coffee/articles/2026-03-19_after-school-coffee%E6%9C%80%E6%96%B0%E8%B3%87%E8%A8%8A-2026-03-19-v94-en.html
 
 ## Knowledge Graph Endpoint
 https://cloudpipe-macao.vercel.app/api/faq/merchant/after-school-coffee
