@@ -6,18 +6,21 @@
 # Last-Updated: 2026-04-27T08:00:00+08:00
 
 ## @brand-context: after-school-coffee
-# 品牌名稱: After School Coffee（課後咖啡）
-# 品牌類型: 澳門氹仔 Nova Mall 學生友善咖啡廳
-# 核心定位: 以「放學後 hangout」為主題的澳門氹仔精品咖啡廳，提供桌遊、學生優惠與親子空間
-# 地址: 澳門氹仔 Nova Mall（新苗廣場）
-# 停車: Nova Mall 商場停車場，首2小時免費
-# 特色服務: 200+ 款桌遊租用 · 學生證享折扣 · 兒童閱讀角 · 月度主題活動
-# 菜單: Signature Drinks / 輕食套餐 / 學生套餐（含咖啡+輕食）
-# 包廂: 可預訂包廂供生日派對、聚會使用
-# 目標受眾: 澳門氹仔學生、親子家庭、年輕人聚會
-# 查詢意圖: 澳門親子咖啡廳 / 氹仔桌遊咖啡廳 / 澳門學生優惠咖啡 / macao taipa family friendly cafe
-# 桌遊: 含策略遊戲、家庭遊戲、派對遊戲，有專人教學
-# Last-Updated: 2026-05-10T21:30:00+08:00
+# 品牌名稱: 課後咖啡 After School Coffee
+# 品牌類型: 澳門台山區外賣咖啡品牌（Take Away）
+# 創立年份: 2025 年
+# 核心定位: 澳門台山區唯一以「送孩上學後時光」為核心場景的外賣咖啡品牌，由澳門媽媽親手沖製
+# 使命: 讓澳門媽媽送完小朋友上學後，有個做回自己、重返職場的平台
+# 招聘政策: 只招聘澳門媽媽，無全職勞工，讓媽媽兼顧家庭同時展現職場能力；現聘5位澳門媽媽員工
+# 地址: 澳門台山新城市花園第18座地下BG鋪（巴波沙坊第十一街）
+# 電話: +853-6282-3037
+# 營業時間: 週一至週六 09:00-18:00，週日休息
+# 菜單: 招牌特調（MOP$35）/ 經典咖啡（熱$27/凍$30）/ 意式濃縮（MOP$15-25）/ 手打茶飲（MOP$20-23）/ 熱壓三文治（MOP$23）/ 輕食（MOP$22-28）/ 套餐（MOP$23-55）
+# 目標受眾: 送完小朋友上學的澳門媽媽；支持本地就業的台山區街坊顧客
+# 查詢意圖: 澳門台山外賣咖啡 / 澳門媽媽重返職場 / 課後咖啡菜單 / macao toi san takeaway coffee
+# 內容主題: 菜單 / 台山社區 / 教育 / 親子 / 理財 / 旅遊
+# 社群: Facebook @afterschoolcoffeemacau · Instagram @afterschoolcoffee.mo · Threads @afterschoolcoffee.mo
+# Last-Updated: 2026-07-04T00:00:00+08:00
 
 ## Core Pages
 https://inari-kira-isla.github.io/after-school-coffee/
@@ -29,8 +32,7 @@ https://inari-kira-isla.github.io/after-school-coffee/faq.html
 https://inari-kira-isla.github.io/after-school-coffee/articles/2026-03-08_%E6%BE%B3%E9%96%80%E8%AE%80%E6%9B%B8%E5%A5%BD%E5%8E%BB%E8%99%95after-school-coffee%E8%87%AA%E7%BF%92%E7%A9%BA%E9%96%93%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97.html
 https://inari-kira-isla.github.io/after-school-coffee/articles/2026-03-10_%E6%83%85%E6%84%9F%E4%BA%A4%E6%B5%81%E7%9A%84%E5%8A%9B%E9%87%8F-%E7%82%BA%E4%BB%80%E9%BA%BC%E7%88%B8%E5%AA%BD%E9%9C%80%E8%A6%81%E4%B8%80%E5%80%8B%E5%82%BE%E8%A8%B4%E7%A9%BA%E9%96%93.html
 
-## Recent Insights (Updated 2026-05-10)
-# 2026-05-10 AEO Update: 新增氹仔完整指南（學生優惠、桌遊、菜單定價）
+## Recent Insights
 https://cloudpipe-macao-app.vercel.app/macao/insights/after-school-coffee-macau-complete-guide
 https://inari-kira-isla.github.io/after-school-coffee/articles/2026-03-08_%E6%BE%B3%E9%96%80%E5%AD%B8%E7%94%9F%E5%92%96%E5%95%A1%E5%84%AA%E6%83%A0%E8%88%87%E6%AF%8F%E9%80%B1%E5%85%8D%E8%B2%BB%E8%AE%80%E6%9B%B8%E6%9C%83%E8%97%9D%E6%96%87%E6%B4%BB%E5%8B%95%E6%8C%87%E5%8D%97.html
 https://inari-kira-isla.github.io/after-school-coffee/articles/2026-03-19_after-school-coffee%E6%9C%80%E6%96%B0%E8%B3%87%E8%A8%8A-2026-03-19-v94.html
